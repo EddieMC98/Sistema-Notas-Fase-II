@@ -1,0 +1,36 @@
+﻿@model SistemaNotas1.Models.TbNivel
+
+@{
+    ViewData["Title"] = "Elminar";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+
+    <h1>Eliminar</h1>
+
+    <h3>¿Esta seguro que desea eliminara este nivel?</h3>
+    <div>
+        <h4>Nivel</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="CodNivel" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a class="btn btn-dark" asp-action="Index">Regresar a la Lista</a>
+        </form>
+    </div>
+</div>

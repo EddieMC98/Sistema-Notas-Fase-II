@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SistemaNotas1.Models.TbClaseAlumno>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Aprobado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodAlumno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodClase)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aprobado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodAlumno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodClase)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CodClaseAlumno">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CodClaseAlumno">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CodClaseAlumno">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

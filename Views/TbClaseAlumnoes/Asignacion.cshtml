@@ -1,0 +1,41 @@
+﻿@model SistemaNotas1.Models.Usuarios.Asignaciones;
+@{
+    ViewBag.Title = "Asignar Alumno";
+}
+    <head>
+        @if (ViewBag.showSuccessAlert)
+        {
+            <script>
+            alert('Ya existe un registro similar');
+            </script>
+        }
+    </head>
+
+<div class="container" style="width:400px">
+    <h2 align="center">Asignación</h2>
+    <form action="/TbClaseAlumnoes/Asignacion" enctype="multipart/form-data" method="post">
+
+        @Html.ValidationSummary()
+
+        <div class="form-group">
+            Curso:
+            @Html.DropDownListFor(model => model.CodClase, new SelectList(Model.ListaClase, "Value", "Text"), new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            Alumno:
+            @Html.DropDownListFor(model => model.CodAlumno, new SelectList(Model.ListaAlumno, "Value", "Text"), new { @class = "form-control" })
+        </div>
+        @*@foreach (TbGrado item in Model.ListaGrados)
+                {
+            <div class="form-group">
+                Categoria:
+                <span>@item.Nombre.ToString()</span>
+            </div>
+
+                }*@
+
+        <div align="right"><input type="submit" class="btn btn-primary" name="Registrar" value="Registrar" /></div>
+
+    </form>
+
+</div>

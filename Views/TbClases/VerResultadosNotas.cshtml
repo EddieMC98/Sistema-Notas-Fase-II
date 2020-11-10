@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SistemaNotas1.Models.TbUnidad>
+@{
+    ViewBag.Title = "Unidades";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+
+    <form action="/TbClases/VerNotas" class="container" method="post">
+
+        <div class="container" style="width:400px">
+            <h2 align="center">UNIDADES</h2>
+            <br />
+            <br />
+            <center>
+                @foreach (var item in Model)
+                {
+                    <button id="cod_orden" type="submit" class="btn btn-outline-danger" value="@item.CodUnidad" name="cod_orden">@item.Nombre</button>
+                    <br />
+                    <br />
+                }
+            </center>
+        </div>
+    </form>
+</div>>

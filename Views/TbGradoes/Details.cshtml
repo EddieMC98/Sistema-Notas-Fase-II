@@ -1,0 +1,48 @@
+﻿@model SistemaNotas1.Models.TbGrado
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1>Details</h1>
+
+<div>
+    <h4>TbGrado</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CodGradoSiguiente)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CodGradoSiguiente)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SiguienteNivel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SiguienteNivel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CodNivel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CodNivel)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CodGrado">Edit</a> |
+    <a asp-action="VerGrados">Back to List</a>
+</div>

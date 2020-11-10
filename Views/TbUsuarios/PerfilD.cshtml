@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SistemaNotas1.Models.Usuarios.Perfil>
+@{
+    ViewBag.Title = "Registro";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<div class="container" style="width:400px">
+    <h2 align="center">REGISTRO</h2>
+    <form action="/TbUsuarios/EditarPerfilD" enctype="multipart/form-data" method="post">
+
+        @foreach (var item in Model)
+        {
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label class="text-capitalize">Nombre</label>
+                <input type="text" class="form-control" name="Nombre" value="@item.Nombre" />
+            </div>
+            <div class="form-group">
+                <label class="text-capitalize">Apellidos</label>
+                <input type="text" class="form-control" name="Apellidos" value="@item.Apellidos" />
+            </div>
+            <div class="form-group">
+                <label class="text-capitalize">Correo</label>
+                <input type="email" class="form-control" name="Correo" value="@item.Correo" readonly="readonly" />
+            </div>
+            <div class="form-group">
+                <label class="text-capitalize">Direccion</label>
+                <input type="text" class="form-control" name="Direccion" value="@item.Direccion" />
+            </div>
+            <div class="form-group">
+                <label class="text-capitalize">Telefono</label>
+                <input type="text" class="form-control" name="Telefono" value="@item.Telefono" />
+            </div>
+            <div class="form-group">
+                <label class="text-capitalize">Cui</label>
+                <input type="text" class="form-control" name="Cui" value="@item.Cui" readonly="readonly" />
+            </div>
+            <div class="form-group">
+                <label class="text-capitalize">Imagen</label>
+                <a href="single.html"><img src="@Url.Action("getImage","TbUsuarios",new { id=item.CodInfoPersonal})" alt="Image" class="img-fluid" style="height:512px; width:512px"></a>
+                <input type="file" class="form-control" id="Imagen" name="Upload" />
+            </div>
+
+            <div class="form-group" hidden="hidden">
+                <label class="text-capitalize">Cui</label>
+                <input type="text" class="form-control" name="CodInfoPersonal" value="@item.CodInfoPersonal" />
+            </div>
+
+        }
+        <div align="right"><input type="submit" class="btn btn-warning" name="Registrar" value="EDITAR PERFIL" /></div>
+
+    </form>
+
+</div>

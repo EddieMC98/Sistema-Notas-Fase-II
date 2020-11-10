@@ -1,0 +1,505 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!--/ Carousel Star /-->
+<div class="intro intro-carousel">
+    <div id="carousel" class="owl-carousel owl-theme">
+        <div class="carousel-item-a intro-item bg-image" style="background-image: url(img1/slide-1.jpg)">
+            <div class="overlay overlay-a"></div>
+            <div class="intro-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div>
+                                <div class="intro-body">
+                                    <p class="intro-title-top">
+                                        San Pedro Carchá
+                                        <br> Alta Verapaz
+                                    </p>
+                                    <h1 class="intro-title mb-4">
+                                        <span class="color-b">COLEGIO</span> SAGRADA FAMILIA
+                                        <br><p style="font-size:40px"> Control de Notas Académicas</p>
+                                    </h1>
+                                    @if (@User.Identity.IsAuthenticated && @User.IsInRole("Docente"))
+                                    {
+                                        <p class="intro-subtitle intro-price">
+                                            <a href="@Url.Action("AgregarActividad","TbActividads")"><span class="price-a"> ACTIVIDADES </span></a>
+                                        </p>
+                                    }
+                                    else if (@User.Identity.IsAuthenticated && @User.IsInRole("Estudiante"))
+                                    {
+                                        <p class="intro-subtitle intro-price">
+                                            <a href="@Url.Action("VerUnidades","TbClases")"><span class="price-a"> CLASES </span></a>
+                                        </p>
+                                    }
+                                    else if (@User.Identity.IsAuthenticated && @User.IsInRole("Administrador"))
+                                    {
+                                        <p class="intro-subtitle intro-price">
+                                            <a href="@Url.Action("Visualizar","TbUsuarios")"><span class="price-a"> USUARIOS </span></a>
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                    <p class="intro-subtitle intro-price">
+                                        <a href="@Url.Action("Login","TbUsuarios")"><span class="price-a"> INICIAR SESION </span></a>
+                                    </p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item-a intro-item bg-image" style="background-image: url(img1/slide-2.jpg)">
+            <div class="overlay overlay-a"></div>
+            <div class="intro-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div>
+                                <div class="intro-body">
+                                    <p class="intro-title-top">
+                                        San Pedro Carchá
+                                        <br> Alta Verapaz
+                                    </p>
+                                    <h1 class="intro-title mb-4">
+                                        <span class="color-b">COLEGIO</span> SAGRADA FAMILIA
+                                        <br><p style="font-size:40px"> Control de Notas Académicas</p>
+                                    </h1>
+                                    @if (@User.Identity.IsAuthenticated && @User.IsInRole("Docente"))
+                                    {
+                                        <p class="intro-subtitle intro-price">
+                                            <a href="@Url.Action("AgregarActividad","TbActividads")"><span class="price-a"> ACTIVIDADES </span></a>
+                                        </p>
+                                    }
+                                    else if (@User.Identity.IsAuthenticated && @User.IsInRole("Estudiante"))
+                                    {
+                                        <p class="intro-subtitle intro-price">
+                                            <a href="@Url.Action("VerUnidades","TbClases")"><span class="price-a"> CLASES </span></a>
+                                        </p>
+                                    }
+                                    else if (@User.Identity.IsAuthenticated && @User.IsInRole("Administrador"))
+                                    {
+                                        <p class="intro-subtitle intro-price">
+                                            <a href="@Url.Action("Visualizar","TbUsuarios")"><span class="price-a"> USUARIOS </span></a>
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p class="intro-subtitle intro-price">
+                                            <a href="@Url.Action("Login","TbUsuarios")"><span class="price-a"> INICIAR SESION </span></a>
+                                        </p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item-a intro-item bg-image" style="background-image: url(img1/slide-3.jpg)">
+            <div class="overlay overlay-a"></div>
+            <div class="intro-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div>
+                                <div class="intro-body">
+                                    <p class="intro-title-top">
+                                        San Pedro Carchá
+                                        <br> Alta Verapaz
+                                    </p>
+                                    <h1 class="intro-title mb-4">
+                                        <span class="color-b">COLEGIO</span> SAGRADA FAMILIA
+                                        <br><p style="font-size:40px"> Control de Notas Académicas</p>
+                                    </h1>
+                                    @if (@User.Identity.IsAuthenticated && @User.IsInRole("Docente"))
+                                    {
+                                        <p class="intro-subtitle intro-price">
+                                            <a href="@Url.Action("AgregarActividad","TbActividads")"><span class="price-a"> ACTIVIDADES </span></a>
+                                        </p>
+                                    }
+                                    else if (@User.Identity.IsAuthenticated && @User.IsInRole("Estudiante"))
+                                    {
+                                        <p class="intro-subtitle intro-price">
+                                            <a href="@Url.Action("VerUnidades","TbClases")"><span class="price-a"> CLASES </span></a>
+                                        </p>
+                                    }
+                                    else if (@User.Identity.IsAuthenticated && @User.IsInRole("Administrador"))
+                                    {
+                                        <p class="intro-subtitle intro-price">
+                                            <a href="@Url.Action("Visualizar","TbUsuarios")"><span class="price-a"> USUARIOS </span></a>
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p class="intro-subtitle intro-price">
+                                            <a href="@Url.Action("Login","TbUsuarios")"><span class="price-a"> INICIAR SESION </span></a>
+                                        </p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ Carousel end /-->
+<!--/ Services Star /-->
+<section class="section-services section-t8">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-wrap d-flex justify-content-between">
+                    <div class="title-box">
+                        <h2 class="title-a">MISIÓN Y VISIÓN</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-box-c foo">
+                    <div class="card-header-c d-flex">
+                        <div class="card-box-ico">
+                            <span class="fa fa-home"></span>
+                        </div>
+                        <div class="card-title-c align-self-center">
+                            <h2 class="title-c">Misión</h2>
+                        </div>
+                    </div>
+                    <div class="card-body-c">
+                        <p class="content-c" style="text-align:justify">
+                            La escuela y sus agentes educativos, promueven una educación de calidad integral basada en el desarrollo de capacidades, habilidades cognitivas, de formación personal y social de los estudiantes, respetando sus intereses, estilos y ritmos de aprendizajes, mediante una propuesta curricular humanista, integrando la educación de un sistema progresivo de objetivos y actividades, centrados no en la enseñanza… centrados en el aprendizaje.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-box-c foo">
+                    <div class="card-header-c d-flex">
+                        <div class="card-box-ico">
+                            <span class="fa fa-eye"></span>
+                        </div>
+                        <div class="card-title-c align-self-center">
+                            <h2 class="title-c">VISIÓN</h2>
+                        </div>
+                    </div>
+                    <div class="card-body-c" style="text-align:justify">
+                        <p class="content-c">
+                            “Formar niños y niñas autónomas, tolerantes e integradoras de la diversidad y que sean actores destacados del desarrollo y crecimiento de sí mismo y su entorno” y una visión educativa, original y dinámica, que se manifiesta en su método. El método scout es un todo integrado en el que se combinan diversos elementos, tales como la adhesión a un código de conducta, el aprendizaje por la acción, el sistema de equipos, la vida en naturaleza, la educación a través del servicio, la presencia estimulante del adulto y muchos otros. Uno de esos elementos es el sistema progresivo de objetivos y actividades, conocido comúnmente entre los scouts como programa de jóvenes.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--/ Services End /-->
+<!--/ Property Star /-->
+<section class="section-property section-t8">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-wrap d-flex justify-content-between">
+                    <div class="title-box">
+                        <h2 class="title-a">Equipo de Desarrollo</h2>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="property-carousel" class="owl-carousel owl-theme">
+            <div class="carousel-item-b">
+                <div class="card-box-a card-shadow">
+                    <div class="img-box-a">
+                        <img src="~/img1/logo2.png" alt="" class="img-a img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-overlay-a-content">
+                            <div class="card-header-a">
+                                <h2 class="card-title-a">
+                                    <a href="https://twitter.com/Eddie_Macz98">
+                                        Macz Caal
+                                        <br /> Eddie Rolando
+                                    </a>
+                                </h2>
+                            </div>
+
+                            <div class="card-footer-a">
+                                <ul class="card-info d-flex justify-content-around">
+                                    <li>
+                                        <h4 class="card-info-title">Edad</h4>
+                                        <span>
+                                            21 años
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <h4 class="card-info-title">Nick</h4>
+                                        <span>EddieMC13</span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item-b">
+                <div class="card-box-a card-shadow">
+                    <div class="img-box-a">
+                        <img src="~/img1/logo3.png" alt="" class="img-a img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-overlay-a-content">
+                            <div class="card-header-a">
+                                <h2 class="card-title-a">
+                                    <a href="property-single.html">
+                                        Requena Ligorria
+                                        <br /> Luis Favio
+                                    </a>
+                                </h2>
+                            </div>
+
+                            <div class="card-footer-a">
+                                <ul class="card-info d-flex justify-content-around">
+                                    <li>
+                                        <h4 class="card-info-title">Edad</h4>
+                                        <span>
+                                            20 años
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <h4 class="card-info-title">Nick</h4>
+                                        <span>The_FlashGT</span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item-b">
+                <div class="card-box-a card-shadow">
+                    <div class="img-box-a">
+                        <img src="~/img1/logo1.png" alt="" class="img-a img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-overlay-a-content">
+                            <div class="card-header-a">
+                                <h2 class="card-title-a">
+                                    <a href="property-single.html">
+                                        Requena Ligorria
+                                        <br /> Luis Renato
+                                    </a>
+                                </h2>
+                            </div>
+
+                            <div class="card-footer-a">
+                                <ul class="card-info d-flex justify-content-around">
+                                    <li>
+                                        <h4 class="card-info-title">Edad</h4>
+                                        <span>
+                                            20 años
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <h4 class="card-info-title">Nick</h4>
+                                        <span>BlackDog17</span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item-b">
+                <div class="card-box-a card-shadow">
+                    <div class="img-box-a">
+                        <img src="~/img1/Usac_logo.png" alt="" class="img-a img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-overlay-a-content">
+                            <div class="card-header-a">
+                                <h2 class="card-title-a">
+                                    <a href="property-single.html">
+                                        CUNOR
+                                        <br /> USAC
+                                    </a>
+                                </h2>
+                            </div>
+
+                            <div class="card-footer-a">
+                                <ul class="card-info d-flex justify-content-around">
+                                    <li>
+                                        <h4 class="card-info-title">Curso</h4>
+                                        <span>
+                                            Base de Datos II
+                                        </span>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ Property End /-->
+<!--/ News Star /-->
+<section class="section-news section-t8">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-wrap d-flex justify-content-between">
+                    <div class="title-box">
+                        <h2 class="title-a">INSTALACIONES</h2>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="new-carousel" class="owl-carousel owl-theme">
+            <div class="carousel-item-c">
+                <div class="card-box-b card-shadow news-box">
+                    <div class="img-box-b">
+                        <img src="~/img1/intalaciones1.jpeg" alt="" class="img-b img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-header-b">
+                            <div class="card-date">
+                                <span class="date-b">AÑO 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item-c">
+                <div class="card-box-b card-shadow news-box">
+                    <div class="img-box-b">
+                        <img src="~/img1/instalaciones2.jpg" alt="" class="img-b img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-header-b">
+
+                            <div class="card-date">
+                                <span class="date-b">AÑO 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item-c">
+                <div class="card-box-b card-shadow news-box">
+                    <div class="img-box-b">
+                        <img src="~/img1/intalaciones3.jpeg" alt="" class="img-b img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-header-b">
+
+                            <div class="card-date">
+                                <span class="date-b">AÑO 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item-c">
+                <div class="card-box-b card-shadow news-box">
+                    <div class="img-box-b">
+                        <img src="~/img1/instalaciones4.jpg" alt="" class="img-b img-fluid">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-header-b">
+
+                            <div class="card-date">
+                                <span class="date-b">AÑO 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--/ News End /-->
+<!--/ Testimonials Star /-->
+<section class="section-testimonials section-t8 nav-arrow-a">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-wrap d-flex justify-content-between">
+                    <div class="title-box">
+                        <h2 class="title-a">Motivación</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="testimonial-carousel" class="owl-carousel owl-arrow">
+            <div class="carousel-item-a">
+                <div class="testimonials-box">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="testimonial-img">
+                                <img src="~/img1/instalaciones7.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="testimonial-ico">
+                                <span class="ion-ios-quote"></span>
+                            </div>
+                            <div class="testimonials-content">
+                                <p class="testimonial-text">
+                                    Comprometernos con nuestros sueños. Requiere entregar lo que no estamos dispuestos a dejar.
+                                </p>
+                            </div>
+                            <div class="testimonial-author-box">
+
+                                <h5 class="testimonial-author">Geovanni de León</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item-a">
+                <div class="testimonials-box">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="testimonial-img">
+                                <img src="~/img1/instalaciones6.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="testimonial-ico">
+                                <span class="ion-ios-quote"></span>
+                            </div>
+                            <div class="testimonials-content">
+                                <p class="testimonial-text">
+                                    Todo éxito tiene lugar fuera de la zona de confort.
+                                </p>
+                            </div>
+                            <div class="testimonial-author-box">
+
+                                <h5 class="testimonial-author">Michael John Bobak</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ Testimonials End /-->

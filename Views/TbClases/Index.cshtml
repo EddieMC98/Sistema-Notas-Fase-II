@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SistemaNotas1.Models.TbClase>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodUnidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodAño)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodJornada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodCurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodDocente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodSeccion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodUnidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodAño)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodJornada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodCurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodDocente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodSeccion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CodClase">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CodClase">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CodClase">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

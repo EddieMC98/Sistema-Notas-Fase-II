@@ -1,0 +1,69 @@
+﻿@model SistemaNotas1.Models.Usuarios.IngresoUsuario;
+@{
+    ViewBag.Title = "Registro Estudiantes";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<head>
+    @if (ViewBag.showSuccessAlert)
+    {
+        <script>
+            alert('¡HA OCURRIDO UN ERROR!');
+        </script>
+    }
+</head>
+<div class="container">
+
+    <div class="container" style="width:400px">
+        <h2 align="center">REGISTRO</h2>
+        <form action="/TbUsuarios/RegistroE" enctype="multipart/form-data" method="post">
+
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <input type="text" class="form-control" name="Nombre" placeholder="Ingrese su nombre" required />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="Apellidos" placeholder="Ingrese su apellido" required />
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="Correo" placeholder="Ingrese su email" required />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="Usuario" placeholder="Ingrese su usuario" required />
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="Password" placeholder="Ingrese su contraseña" required />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="Direccion" placeholder="Ingrese su dirección" required />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="Telefono" placeholder="Ingrese su telefono" required />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="Cui" placeholder="Ingrese su CUI" required />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="Codigo" placeholder="Ingrese el código del estudiante" required />
+            </div>
+            <div class="form-group">
+                Imagen:
+                <input type="file" class="form-control" id="Imagen" name="Upload" />
+            </div>
+
+            <div class="form-group">
+                Grado:
+                @Html.DropDownListFor(model => model.CodGrado, new SelectList(Model.ListaGrados, "Value", "Text"), new { @class = "form-control" })
+            </div>
+            <div align="right"><input type="submit" class="btn btn-success" name="Registrar" value="Registrar" /></div>
+
+        </form>
+
+    </div>
+</div>

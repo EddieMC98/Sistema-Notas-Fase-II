@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SistemaNotas1.Models.Usuarios.VerActividadesxClase>
+@{
+    ViewData["Title"] = "Listado de Clases";
+}
+@{ int Cont = 0;
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <form action="/TbClases/VerClase_Alumno_Actividades" class="container" method="post">
+
+
+
+        <div class="container" id="container1">
+
+            <h2 align="center">LISTA DE ACTIVIDADES</h2>
+
+            <table class="table table-hover" align="center">
+                <thead align="center">
+                    <tr>
+                        <th>
+                            CÓDIGO DE ACTIVIDAD
+                        </th>
+                        <th>
+                            NOMBRE
+                        </th>
+                        <th>
+                            DESCRIPCION
+                        </th>
+                        <th>
+                            NOTA
+                        </th>
+                        <th>
+                            PUNTEO
+                        </th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                ACT -0 @item.CodActividad
+                            </td>
+                            <td>
+                                @item.Nombre
+                            </td>
+                            <td>
+                                @item.Descripcion
+                            </td>
+                            <td>
+                                @item.actividad_punteo[@Cont].Punteo
+                            </td>
+                            <td>
+                                @item.Punteo
+                            </td>
+                        </tr>
+                        Cont++;
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </form>
+</div>

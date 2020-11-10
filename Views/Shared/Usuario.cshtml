@@ -1,0 +1,40 @@
+﻿<ul class="nav navbar-nav navbar-right">
+    <li>
+        @if (@User.Identity.IsAuthenticated && @User.IsInRole("Estudiante"))
+        {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="TbUsuarios" asp-action="PerfilE">@User.Identity.Name</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="TbUsuarios" asp-action="Logout">Cerrar Sesión</a>
+        </li>
+    }
+    else if (@User.Identity.IsAuthenticated && @User.IsInRole("Docente"))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="TbUsuarios" asp-action="PerfilD">@User.Identity.Name</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="TbUsuarios" asp-action="Logout">Cerrar Sesión</a>
+        </li>
+
+    }
+    else if (@User.Identity.IsAuthenticated && @User.IsInRole("Administrador"))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@User.Identity.Name</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="TbUsuarios" asp-action="Logout">Cerrar Sesión</a>
+        </li>
+
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="TbUsuarios" asp-action="Login">INICIAR</a>
+        </li>
+    }
+
+        </li>
+    </ul>

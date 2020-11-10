@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SistemaNotas1.Models.TbUnidad>
+
+@{
+    ViewData["Title"] = "Unidades";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <h1>Unidades</h1>
+
+    <p>
+        <a class="btn btn-success" asp-action="Create">Crear Unidad</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.CodUnidad">Editar</a> |
+                        <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.CodUnidad">Detalles</a> |
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CodUnidad">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

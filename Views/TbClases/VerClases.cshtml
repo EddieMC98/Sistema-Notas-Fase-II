@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SistemaNotas1.Models.Usuarios.CursoxDocente>
+@{
+    ViewData["Title"] = "Facturas";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <form action="/TbClases/AsignarClases" class="container" method="post">
+
+
+
+        <div class="container" id="container1">
+
+            <h2 align="center">ASIGNAR ESTUDIANTES</h2>
+
+            <table class="table table-hover" align="center">
+                <thead align="center">
+                    <tr>
+                        <th>
+                            CÓDIGO DE CLASE
+                        </th>
+                        <th>
+                            ASIGNAR
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                CURSO -0 @item.CodClase
+                            </td>
+                            <td>
+                                <button id="cod_orden" type="submit" class="btn btn-outline-info" value="@item.CodClase" name="cod_orden">@item.Curso @item.Seccion @item.Grado @item.Nivel @item.Jornada @item.Unidad @item.Año</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </form>
+</div>

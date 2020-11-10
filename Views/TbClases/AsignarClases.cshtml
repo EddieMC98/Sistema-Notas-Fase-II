@@ -1,0 +1,144 @@
+﻿@model SistemaNotas1.Models.Usuarios.VerEstudiante
+@{
+    ViewData["Title"] = "Asignaciones";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<section class="contact-section">
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-12">
+                <h2 class="contact-title">Alumnos</h2>
+            </div>
+            @* <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+
+            <div class="col-lg-8">
+                <form asp-action="AsignarAlumnos">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-12">
+                            <button type="button" data-toggle="modal" data-target="#mdlProductos" class="genric-btn primary-border">Buscar Alumno</button>
+                            <br />
+
+                            <table id="lstProductos" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Cantidad</th>
+                                        <th>Carnet</th>
+                                        <th>Alumno</th>
+                                        <th>Grado</th>
+                                        <th>Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Asignar" class="genric-btn primary" style="font-size:18px;" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+</section>
+
+
+<div class="modal fade" id="mdlProductos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Alumnos
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td>Nombre</td>
+                            <td>Carnet</td>
+                            <td>Grado</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var itm in ViewBag.Lista_Alumnos)
+                        {
+                            <tr onclick="agregarProducto('@itm.Nombre', '@itm.Apellidos', '@itm.Grado', '@itm.Nivel', '@itm.Codigo', '@itm.Cod_Estudiante', '@itm.CodClase')" id="MyButton">
+                                <td>@itm.Nombre @itm.Apellidos</td>
+                                <td>@itm.Codigo</td>
+                                <td>@itm.Grado @itm.Nivel</td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    var prueba;
+    var cnt = 0;
+    function agregarProducto(nombre, apellido, grado, nivel, Codigo, CodAlumno, CodClase) {
+        console.log('Entramos')
+        $('#mdlProductos').modal('hide');
+        var fila = '<tr>';
+        fila += '<td>';
+        fila += '<input type="hidden" readonly="true" asp-for="verEstudiantes[' + cnt + '].CodEstudiante" name="verEstudiantes[' + cnt + '].CodEstudiante" value="' + CodAlumno + '">';
+        fila += '<input type="hidden" readonly="true" asp-for="verEstudiantes[' + cnt + '].CodClases" name="verEstudiantes[' + cnt + '].CodClase" value="' + CodClase + '">';
+        fila += '<label value="1" class="form-control">1</label></td>';
+        fila += '<td><input  readonly="true" enable="false" value="' + Codigo + '" class="form-control" asp-for="Codigo"></input></td>';
+        fila += '<td><input readonly="true" value="' + nombre + ' ' + apellido + '" class="form-control" name="Nombre" asp-for="Nombre" id="Nombre"></input></td>';
+        fila += '<td><input readonly="true" value="' + grado + ' ' + nivel + '" class="form-control" name="Apellidos" asp-for="Apellidos" id="Apellidos"></input></td>';
+
+        fila += "<td><button class='btn btn-danger' onclick='eliminarFila(this)'>Eliminar</button></td>";
+        fila += '</tr>';
+
+        $("#lstProductos > tbody").append(fila);
+
+        cnt++;
+
+    };
+
+    function eliminarFila(obj) {
+        cnt--;
+        fila = $(obj).parent().parent();
+        $(fila).fadeOut(300).delay(100).remove();
+
+
+    };
+
+</script>

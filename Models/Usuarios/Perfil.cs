@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace SistemaNotas1.Models.Usuarios
+{
+    public class Perfil
+    {
+        public string Nombre { get; set; }
+        public string Apellidos { get; set; }
+        public string Direccion { get; set; }
+        public string Telefono { get; set; }
+        public byte[] Imagen { get; set; }
+        public string Correo { get; set; }
+        public string Cui { get; set; }
+        public int CodRol { get; set; }
+        public int CodUsuario { get; set; }
+        public string Usuario { get; set; }
+        public string Password { get; set; }
+        public string Codigo { get; set; }
+        public int? CodGrado { get; set; }
+        public int CodInfoPersonal { get; set; }
+
+    }
+}

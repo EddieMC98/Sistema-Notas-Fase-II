@@ -1,0 +1,35 @@
+﻿@model SistemaNotas1.Models.TbClaseAlumno
+
+@{
+    ViewData["Title"] = "Eliminar Alumno";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <h1>Eliminar</h1>
+
+    <h3>¿Esta seguro de eliminar al alumno?</h3>
+    <div>
+        <h4>Clase</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CodAlumno)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CodAlumno)
+            </dd>
+        </dl>
+
+        <form asp-action="DeleteAlumno">
+            <input type="hidden" asp-for="CodClaseAlumno" />
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            <a class="btn btn-dark" asp-action="VerAlumnoxClase">Regresar a la Lista</a>
+        </form>
+    </div>
+</div>

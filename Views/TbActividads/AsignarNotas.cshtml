@@ -1,0 +1,68 @@
+﻿@model SistemaNotas1.Models.Usuarios.VerEstudiante
+
+@{
+    ViewData["Title"] = "Lista";
+}
+@{ int Cont = 1;
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <h1>Lista de Alumnos</h1>
+
+    <p>
+        <a class="btn btn-success" asp-action="VerClases">Asignar Alumnos</a>
+
+    </p>
+    <form action="/TbActividads/AsignacionNotas" enctype="multipart/form-data" method="post">
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th>
+                        NOTAS
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.CodClase)
+                        </th>*@
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.Lista_Alumnos)
+                {
+                    Cont = @item.Contador;
+
+                    <tr>
+                        <td>@item.Nombre @item.Apellidos </td>
+                        <td>
+                            <input class="form-control" name="actividadxes[@Cont].Punteo" value="@item.PunteoActividad" />
+                        </td>
+                        <td>
+                            <input hidden="hidden" name="actividadxes[@Cont].CodActividad" class="form-control" value="@item.CodActividad" />
+                        </td>
+                        <td>
+                            <input hidden="hidden" name="actividadxes[@Cont].CodAlumno" class="form-control" value="@item.Cod_Estudiante" />
+                        </td>
+                        @*<td>
+                                @Html.HiddenFor(modelItem => item.CodClase)
+                            </td>*@
+
+
+
+                    </tr>
+                }
+            </tbody>
+            <div align="right"><input type="submit" class="btn btn-primary" name="Registrar" value="Registrar" /></div>
+    </form>
+    </table>
+</div>

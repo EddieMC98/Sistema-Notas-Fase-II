@@ -1,0 +1,55 @@
+﻿@model IEnumerable<SistemaNotas1.Models.Usuarios.VerCursos>
+
+@{
+    ViewData["Title"] = "Cursos";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <h1>Cursos</h1>
+
+    <p>
+        <a class="btn btn-success" asp-action="AgregarCursos">Crear Curso</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Grado
+                </th>
+                <th>
+                    Nivel
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.curso)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.grado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nivel)
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.CodCurso">Editar</a> |
+                        <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.CodCurso">Detalles</a> |
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CodCurso">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,52 @@
+﻿@model SistemaNotas1.Models.TbActividad
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+
+    <h1>Detalles</h1>
+
+    <div>
+        <h4>Actividad</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Punteo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Punteo)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CodClase)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CodClase)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.CodActividad">Editar Actividad</a> |
+        <a class="btn btn-dark" asp-action="Index">Regresar a la Lista</a>
+    </div>
+</div>

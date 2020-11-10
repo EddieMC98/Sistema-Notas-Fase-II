@@ -1,0 +1,94 @@
+﻿@model IEnumerable<SistemaNotas1.Models.Usuarios.VerAdministrador>
+@*@{
+        Layout = "/Shared/_Layout.cshtml";
+    }*@
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inicio</title>
+    <link rel="stylesheet" href="" />
+</head>
+<body>
+    <hr />
+    <br />
+    <div class="container">
+
+
+
+        <form asp-action="VerAdministrador" method="get">
+            <div align="center">
+                <p>
+
+                    <div align="center" style="width:300px">
+                        <input type="text" name="busqueda" value="@ViewData["CurrentFilter"]" class="form-control border-secondary">
+                        <div align="center">
+                            <br />
+                            <input type="submit" value="Buscar" class="btn btn-outline-success">
+                        </div>
+                    </div>
+                </p>
+                <br />
+            </div>
+
+        </form>
+
+        <!--<div class="busqueda btn_group">
+            <input type="text" class="buscar btn btn-group" placeholder="Busca algo..." />
+            <input type="submit" class="boton btn btn-group" value="Ir" />
+        </div>-->
+        <div align="right">
+            <a href="@Url.Action("RegistroA","TbUsuarios")" class="btn btn-primary">Agregar Administrador</a>
+        </div>
+    </div>
+    <br />
+
+    <section class="site-section" id="blog-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-8 text-center">
+                    <h2 class="text-black h1 site-section-heading text-center">PERSONAL ADMINISTRATIVO</h2>
+                </div>
+            </div>
+            <form action="/TbUsuarios/Edit" method="post">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+                            <div class="h-entry">
+                                <a href=""><img src="@Url.Action("getImage","TbUsuarios",new { id=item.CodInfoPersonal})" alt="Image" class="img-fluid" style="height:200px; width:200px"></a>
+                                <h2 class="font-size-regular"><a> @item.Nombre</a></h2>
+                                <div class="meta mb-4">Apellidos: @item.Apellidos</div>
+                                <div class="meta mb-4">Telefono: @item.Telefono</div>
+                                <div class="meta mb-4">Cui: @item.Cui</div>
+                                <p align="justify">@item.Correo</p>
+                            </div>
+                        </div>
+                    }
+            </form>
+        </div>
+        </div>
+    </section>
+    @*  <form action="Edit" enctype="multipart/form-data">
+         <div class="form-group">
+             @Html.LabelFor(model => model.Imagen, htmlAttributes: new { @class = "control-label cod-md-2" })
+             <div class="col-md-10">
+                 <img src="@Url.Action("getImage","TbProductoes",new { id=Model.CodProducto})" />
+                 <input type="file" name="Upload" />
+                 @Html.ValidationMessageFor(model => model.Imagen, "", new { @class = "text-danger" })
+             </div>
+         </div>
+        </form>
+    *@
+    </div>
+</body>
+</html>

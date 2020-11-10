@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SistemaNotas1.Models.Usuarios.NotasXAlumno>
+
+@{
+    ViewData["Title"] = "Notas";
+}
+@{ int Cont = 1;
+}
+
+<br /><br /><br /><br /><br /><br /><br />
+                                    <div class="container">
+                                        <h1>Listado de Notas</h1>
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Codigo
+                                                    </th>
+                                                    <th>
+                                                        Nombre
+                                                    </th>
+                                                    @for (int i = 1; i <= ViewBag.Lista_Alumnos2; i++)
+                                                    {
+                                                        <th>
+                                                            Actividad @i
+                                                        </th>
+                                                    }
+                                                    <th>
+                                                        Total
+                                                    </th>
+                                                    <th>
+                                                        Estado
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Codigo)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Nombre) @Html.DisplayFor(modelItem => item.Apellidos)
+                                                        </td>
+                                                        @for (int i = 0; i < ViewBag.Lista_Alumnos2; i++)
+                                                        {
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.actividad_punteo[i].Punteo)
+                                                            </td>
+                                                        }
+
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Total)
+                                                        </td>
+
+                                                        @*<td>
+                            @Html.HiddenFor(modelItem => item.CodClase)
+                        </td>*@
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Estado)
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                    </div>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SistemaNotas1.Models.Usuarios.VerEstudiante>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+
+    <h1>Lista de Alumnos</h1>
+
+    <p>
+        <a class="btn btn-success" asp-action="VerClases">Asignar Alumnos</a>
+
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cui)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Correo)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.CodClase)
+                    </th>*@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre) @Html.DisplayFor(modelItem => item.Apellidos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cui)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Correo)
+                    </td>
+                    @*<td>
+                            @Html.HiddenFor(modelItem => item.CodClase)
+                        </td>*@
+                    <td>
+                        <a class="btn btn-danger" asp-action="DeleteAlumno" asp-route-id="@item.CodGrado">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+	
+</div>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SistemaNotas1.Models.TbCurso>
+
+@{
+    ViewData["Title"] = "Cursos";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <h1>Cursos</h1>
+
+    <p>
+        <a class="btn btn-success" asp-action="AgregarCursos">Crear Curso</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th hidden="hidden">
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th >
+                    @Html.DisplayNameFor(model => model.CodGrado)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td hidden="hidden">
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodGrado)
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.CodCurso">Editar</a> |
+                        <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.CodCurso">Detalles</a> |
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CodCurso">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

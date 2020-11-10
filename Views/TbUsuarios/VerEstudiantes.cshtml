@@ -1,0 +1,113 @@
+﻿@model IEnumerable<SistemaNotas1.Models.Usuarios.VerEstudiante>
+@*@{
+        Layout = "/Shared/_Layout.cshtml";
+    }*@
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inicio</title>
+    <link rel="stylesheet" href="" />
+</head>
+<body>
+    <hr />
+    <br />
+    <div class="container">
+
+
+
+        <form asp-action="VerEstudiantes" method="get">
+            <div align="center">
+                <p>
+
+                    <div align="center" style="width:300px">
+                        <input type="text" name="busqueda" value="@ViewData["CurrentFilter"]" class="form-control border-secondary">
+                        <div align="center">
+                            <br />
+                            <input type="submit" value="Buscar" class="btn btn-outline-success">
+                        </div>
+                    </div>
+                </p>
+                <br />
+            </div>
+
+        </form>
+
+        <!--<div class="busqueda btn_group">
+            <input type="text" class="buscar btn btn-group" placeholder="Busca algo..." />
+            <input type="submit" class="boton btn btn-group" value="Ir" />
+        </div>-->
+        <div align="right">
+            <a href="@Url.Action("RegistroE","TbUsuarios")" class="btn btn-primary">Agregar Estudiante</a>
+        </div>
+    </div>
+    <br />
+
+    <section class="site-section" id="blog-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-8 text-center">
+                    <h2 class="text-black h1 site-section-heading text-center">ESTUDIANTES</h2>
+                </div>
+            </div>
+            <form action="/TbUsuarios/Edit" method="post">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+
+                        <div class="col-md-4">
+                            <div class="card-box-d">
+                                <div class="card-img-d">
+                                    <img src="@Url.Action("getImage","TbUsuarios",new { id=item.CodInfoPersonal})" alt="Image" class="img-d img-fluid">
+                                </div>
+                                <div class="card-overlay card-overlay-hover">
+                                    <div class="card-header-d">
+                                        <div class="card-title-d align-self-center">
+                                            <h3 class="title-d">
+                                                <a href="agent-single.html" class="link-two">@item.Nombre</a><br>
+                                                <a href="agent-single.html" class="link-two">@item.Apellidos</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="card-body-d">
+
+                                        <div class="info-agents color-a">
+                                            <p>
+                                                <strong>Teléfono: </strong>  @item.Telefono
+                                            </p>
+                                            <p>
+                                                <strong>Código: </strong>  @item.Codigo
+                                            </p>
+                                            <p>
+                                                <strong>Corre: </strong>   @item.Correo
+                                            </p>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    }
+                    <br />
+                    <br />
+                    <br />
+</form>
+        </div>
+        </div>
+    </section>
+    </div>
+</body>
+</html>
